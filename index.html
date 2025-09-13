@@ -1,134 +1,316 @@
 <!doctype html>
-<html lang="ur">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Welcome to Easy Biology with Saleh</title>
   <style>
     :root{
-      --max-width: 900px;
-      --crop-height: 320px; /* change this to crop more/less of bottom of picture */
+      --max-width:900px;
+      --crop-height:320px; /* change to show more/less of the image */
     }
 
     html,body{
       height:100%;
       margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
-      background: #ffffff; /* white background */
-      color: #000000; /* black text */
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+      background:#ffffff; /* white background */
+      color:#000000; /* black text */
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      direction: ltr; /* if you prefer right-to-left change to rtl */
     }
 
-    .page {
+    .wrap {
       min-height:100%;
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:center;
-      padding:40px 20px;
+      padding:48px 20px;
       box-sizing:border-box;
     }
 
-    .card {
+    .container {
       width:100%;
       max-width:var(--max-width);
       text-align:center;
       padding:28px;
       box-sizing:border-box;
+      border-radius:10px;
     }
 
     h1 {
       margin:0;
-      font-size:28px;
-      text-transform:none;
+      font-size:30px;
+      font-weight:800;
+      color:#000;
+      letter-spacing:0.2px;
+    }
+
+    .divider {
+      height:2px;
+      background:#000;
+      margin:14px auto;
+      width:60%;
+      opacity:0.95;
+      border-radius:2px;
+    }
+
+    .sub {
+      margin:10px 0 0 0;
+      font-size:18px;
       font-weight:700;
       color:#000;
     }
 
-    .divider {
-      height:1px;
-      background:#000;
-      margin:14px auto;
-      width:60%;
-      opacity:0.9;
-    }
-
-    p.lead {
-      margin:8px 0;
-      font-size:18px;
+    .sub.secondary {
+      font-size:16px;
       font-weight:600;
-      color:#000;
+      opacity:0.95;
+      margin-top:6px;
     }
 
-    /* Image crop wrapper: shows top part of image and hides the bottom area */
+    /* badges row */
+    .badges {
+      display:inline-flex;
+      gap:10px;
+      margin-top:14px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .badge {
+      border:1px solid #000;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    /* Image crop wrapper: shows top portion and hides bottom white area */
     .img-crop {
       width:100%;
-      max-width:640px;
+      max-width:700px;
       height:var(--crop-height);
-      margin:20px auto;
+      margin:22px auto;
       overflow:hidden;
       border-radius:8px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
     }
 
     .img-crop img {
       width:100%;
       height:100%;
       object-fit:cover;      /* fill the box and crop */
-      object-position: top;  /* keep top visible, crop bottom (where white was) */
+      object-position: top;  /* keep top visible, crop bottom (white area) */
       display:block;
     }
 
-    .cta {
+    .cta-row {
       margin-top:18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
     }
 
-    .whatsapp-link {
-      display:inline-block;
+    .whatsapp {
       text-decoration:none;
-      font-weight:700;
+      font-weight:800;
       padding:12px 18px;
       border-radius:8px;
       border:2px solid #000;
       color:#000;
+      display:inline-block;
     }
 
-    /* small caption under button */
-    .note {
-      margin-top:10px;
+    .meta-small {
+      font-size:13px;
+      opacity:0.88;
+      margin-top:8px;
+    }
+
+    /* Comment box section */
+    .comment-box {
+      margin-top:34px;
+      text-align:left;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:18px;
+      border-radius:10px;
+      background:#fff;
+    }
+    .comment-box h3 {
+      margin:0 0 8px 0;
+      font-size:18px;
+    }
+    .comment-row {
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-bottom:10px;
+      flex-wrap:wrap;
+    }
+    .comment-row input[type="text"], .comment-row textarea {
+      flex:1 1 320px;
+      padding:10px 12px;
+      border:1px solid #ddd;
+      border-radius:6px;
+      font-size:14px;
+      box-sizing:border-box;
+    }
+    .comment-row textarea {
+      min-height:60px;
+      resize:vertical;
+    }
+    .comment-actions {
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .btn {
+      padding:10px 14px;
+      border-radius:8px;
+      border:1px solid #000;
+      font-weight:700;
+      background:transparent;
+      cursor:pointer;
+    }
+
+    .comments-list {
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .comment-item {
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,0.06);
+      background: #fafafa;
+      font-size:14px;
+    }
+    .comment-meta {
+      font-size:12px;
+      opacity:0.8;
+      margin-bottom:6px;
+    }
+
+    .footer-note {
+      margin-top:16px;
       font-size:13px;
       opacity:0.9;
+      text-align:center;
     }
 
-    @media (max-width:520px){
+    @media (max-width:600px){
       h1 { font-size:22px; }
-      p.lead { font-size:16px; }
       :root{ --crop-height:220px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="card">
-      <h1>welcome to easy biology with saleh</h1>
+  <div class="wrap">
+    <div class="container">
+
+      <h1>Welcome to Easy Biology with Saleh</h1>
       <div class="divider" aria-hidden="true"></div>
 
-      <p class="lead">assalamualikum students</p>
-      <p class="lead">easy way for study</p>
+      <p class="sub">Assalamualikum Students</p>
+      <p class="sub secondary">Easy Way for Study</p>
 
-      <!-- Image: save your uploaded image in the same folder as "biopic.webp" -->
+      <div class="badges" aria-hidden="false">
+        <div class="badge">10k Students</div>
+        <div class="badge">5 Year Experience</div>
+      </div>
+
       <div class="img-crop" aria-hidden="false">
+        <!-- Save your image in same folder with this name: biopic.webp -->
         <img src="biopic.webp" alt="Easy Biology with Saleh">
       </div>
 
-      <div class="cta">
-        <a class="whatsapp-link" href="https://whatsapp.com/channel/0029Vb6TXpfDeOMzcYqcJF3b" target="_blank" rel="noopener noreferrer">
+      <div class="cta-row">
+        <a class="whatsapp" href="https://whatsapp.com/channel/0029Vb6TXpfDeOMzcYqcJF3b" target="_blank" rel="noopener noreferrer">
           Join this now
         </a>
-        <div class="note">WhatsApp channel — click to open.</div>
+        <div class="meta-small">WhatsApp channel — click to open</div>
       </div>
+
+      <!-- Comment / Review box -->
+      <div class="comment-box" aria-live="polite">
+        <h3>Review — Share your comment</h3>
+        <div style="font-size:13px; color:#333; margin-bottom:8px;">
+          Example answers: <strong>ha ha</strong> &nbsp; <strong>na</strong> &nbsp; <strong>wesy hi</strong>
+        </div>
+
+        <div class="comment-row">
+          <input id="nameInput" type="text" placeholder="Your name (optional)" />
+        </div>
+
+        <div class="comment-row">
+          <textarea id="commentInput" placeholder="Write your comment here... (e.g. ha ha / na / wesy hi)"></textarea>
+        </div>
+
+        <div class="comment-row">
+          <div class="comment-actions">
+            <button id="addCommentBtn" class="btn">Post Comment</button>
+            <button id="clearBtn" class="btn" type="button">Clear</button>
+          </div>
+        </div>
+
+        <div class="comments-list" id="commentsList" aria-live="polite">
+          <!-- dynamic comments appear here -->
+        </div>
+
+        <div class="footer-note">Thanks for visit</div>
+      </div>
+
     </div>
   </div>
+
+  <script>
+    // simple local comment functionality (no server) — comments persist only in current page session
+    (function(){
+      const nameEl = document.getElementById('nameInput');
+      const commentEl = document.getElementById('commentInput');
+      const addBtn = document.getElementById('addCommentBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const list = document.getElementById('commentsList');
+
+      function addComment() {
+        const text = commentEl.value.trim();
+        if (!text) {
+          alert('Please write a comment before posting.');
+          return;
+        }
+        const name = nameEl.value.trim() || 'Anonymous';
+        const item = document.createElement('div');
+        item.className = 'comment-item';
+        const meta = document.createElement('div');
+        meta.className = 'comment-meta';
+        meta.textContent = name + ' • ' + new Date().toLocaleString();
+        const body = document.createElement('div');
+        body.textContent = text;
+        item.appendChild(meta);
+        item.appendChild(body);
+        list.prepend(item);
+        commentEl.value = '';
+        nameEl.value = '';
+      }
+
+      addBtn.addEventListener('click', addComment);
+      commentEl.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+          addComment();
+        }
+      });
+      clearBtn.addEventListener('click', function(){
+        nameEl.value = '';
+        commentEl.value = '';
+      });
+    })();
+  </script>
 </body>
 </html>
