@@ -136,30 +136,19 @@
   <div class="note">WhatsApp channel — click to open</div>
 
   <!-- Review Box -->
-  <div class="comment-box">
-    <h3>Review — Share your comment</h3>
-    <textarea id="commentInput" placeholder="Write your comment here... (e.g. ha ha / na / wesy hi)"></textarea>
-    <button onclick="addComment()">Post Comment</button>
-    <div class="comments-list" id="commentsList"></div>
-  </div>
+  <!-- Review Box -->
+<div class="comment-box">
+  <h3>Review — Share your comment</h3>
+  <form method="POST" action="https://api.staticman.net/v3/entry/github/studyhub9/easy-biology-with-saleh/main/comments">
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <textarea name="message" placeholder="Write your comment here..." required></textarea><br><br>
+    <button type="submit">Post Comment</button>
+  </form>
+</div>
+
 
   <div class="footer">Thanks for visit</div>
 
-  <script>
-    function addComment() {
-      const input = document.getElementById("commentInput");
-      const text = input.value.trim();
-      if (text === "") {
-        alert("Please enter a comment!");
-        return;
-      }
-      const list = document.getElementById("commentsList");
-      const item = document.createElement("div");
-      item.className = "comment-item";
-      item.innerText = text;
-      list.prepend(item);
-      input.value = "";
-    }
-  </script>
+ 
 </body>
 </html>
