@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ur">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Welcome to Easy Biology with Saleh</title>
+  <style>
+    :root{
+      --max-width: 900px;
+      --crop-height: 320px; /* change this to crop more/less of bottom of picture */
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
+      background: #ffffff; /* white background */
+      color: #000000; /* black text */
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      direction: ltr; /* if you prefer right-to-left change to rtl */
+    }
+
+    .page {
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+      box-sizing:border-box;
+    }
+
+    .card {
+      width:100%;
+      max-width:var(--max-width);
+      text-align:center;
+      padding:28px;
+      box-sizing:border-box;
+    }
+
+    h1 {
+      margin:0;
+      font-size:28px;
+      text-transform:none;
+      font-weight:700;
+      color:#000;
+    }
+
+    .divider {
+      height:1px;
+      background:#000;
+      margin:14px auto;
+      width:60%;
+      opacity:0.9;
+    }
+
+    p.lead {
+      margin:8px 0;
+      font-size:18px;
+      font-weight:600;
+      color:#000;
+    }
+
+    /* Image crop wrapper: shows top part of image and hides the bottom area */
+    .img-crop {
+      width:100%;
+      max-width:640px;
+      height:var(--crop-height);
+      margin:20px auto;
+      overflow:hidden;
+      border-radius:8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .img-crop img {
+      width:100%;
+      height:100%;
+      object-fit:cover;      /* fill the box and crop */
+      object-position: top;  /* keep top visible, crop bottom (where white was) */
+      display:block;
+    }
+
+    .cta {
+      margin-top:18px;
+    }
+
+    .whatsapp-link {
+      display:inline-block;
+      text-decoration:none;
+      font-weight:700;
+      padding:12px 18px;
+      border-radius:8px;
+      border:2px solid #000;
+      color:#000;
+    }
+
+    /* small caption under button */
+    .note {
+      margin-top:10px;
+      font-size:13px;
+      opacity:0.9;
+    }
+
+    @media (max-width:520px){
+      h1 { font-size:22px; }
+      p.lead { font-size:16px; }
+      :root{ --crop-height:220px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <h1>welcome to easy biology with saleh</h1>
+      <div class="divider" aria-hidden="true"></div>
+
+      <p class="lead">assalamualikum students</p>
+      <p class="lead">easy way for study</p>
+
+      <!-- Image: save your uploaded image in the same folder as "biopic.webp" -->
+      <div class="img-crop" aria-hidden="false">
+        <img src="biopic.webp" alt="Easy Biology with Saleh">
+      </div>
+
+      <div class="cta">
+        <a class="whatsapp-link" href="https://whatsapp.com/channel/0029Vb6TXpfDeOMzcYqcJF3b" target="_blank" rel="noopener noreferrer">
+          Join this now
+        </a>
+        <div class="note">WhatsApp channel — click to open.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
