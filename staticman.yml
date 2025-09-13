@@ -1,8 +1,11 @@
-comments:
-  allowedFields: ["name", "message"]
-  branch: "main"
-  format: "yaml"
-  path: "_data/comments/{options.slug}"
-  requiredFields: ["name", "message"]
-  transforms:
-    email: md5
+<!-- Comments Section -->
+<div class="comment-box">
+  <h3>Comments</h3>
+  <script src="https://utteranc.es/client.js"
+          repo="studyhub9/easy-biology-with-saleh"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
