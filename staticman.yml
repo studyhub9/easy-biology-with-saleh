@@ -1,0 +1,8 @@
+comments:
+  allowedFields: ["name", "message"]
+  branch: "main"
+  format: "yaml"
+  path: "_data/comments/{options.slug}"
+  requiredFields: ["name", "message"]
+  transforms:
+    email: md5
